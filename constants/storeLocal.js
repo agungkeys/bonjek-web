@@ -20,6 +20,6 @@ const storeLandingCategories = [
   }
 ];
 
-export default {
+export {
   storeLandingCategories,
 }
