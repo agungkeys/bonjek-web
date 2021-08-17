@@ -21,6 +21,13 @@
   },
   "devDependencies": {
     "autoprefixer": "10.2.6",
+    "@babel/core": "^7.15.0",
+    "eslint": "^7.32.0",
+    "eslint-config-next": "11.0.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react": "^7.14.2",
     "postcss": "8.3.5",
     "tailwindcss": "^2.2.4"
   }
