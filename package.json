@@ -6,13 +6,18 @@
     "start": "next start"
   },
   "dependencies": {
+    "@headlessui/react": "^1.4.0",
+    "@heroicons/react": "^1.0.3",
     "classnames": "2.3.1",
     "date-fns": "2.22.1",
     "next": "latest",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-icons": "^4.2.0",
+    "react-slick": "^0.28.1",
     "remark": "12.0.0",
-    "remark-html": "11.0.2"
+    "remark-html": "11.0.2",
+    "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
     "autoprefixer": "10.2.6",

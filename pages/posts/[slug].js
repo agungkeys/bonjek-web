@@ -13,16 +13,13 @@ import Head from 'next/head'
 import { CMS_NAME } from '@/lib/constants'
 import markdownToHtml from '@/lib/markdownToHtml'
 
-export default function Post({ post, morePosts, preview }) {
+export default function Post({ post, morePosts }) {
   const router = useRouter()
-  if (!router.isFallback && !post?.slug) {
-    return <ErrorPage statusCode={404} />
-  }
   return (
-    <Layout preview={preview}>
+    <Layout>
       <Container>
         <Header />
-        {router.isFallback ? (
+        { !post ? (
           <PostTitle>Loading…</PostTitle>
         ) : (
           <>
@@ -31,11 +28,10 @@ export default function Post({ post, morePosts, preview }) {
                 <title>
                   {post.title} | Next.js Blog Example with {CMS_NAME}
                 </title>
-                <meta property="og:image" content={post.ogImage.url} />
               </Head>
               <PostHeader
                 title={post.title}
-                coverImage={post.coverImage}
+                image={post.coverImage}
                 date={post.date}
                 author={post.author}
               />
@@ -50,18 +46,17 @@ export default function Post({ post, morePosts, preview }) {
   )
 }
 
-export async function getStaticProps({ params, preview = null }) {
-  const data = await getPostAndMorePosts(params.slug, preview)
+export async function getStaticProps({ params }) {
+  const data = await getPostAndMorePosts(params.slug)
   const content = await markdownToHtml(data?.posts[0]?.content || '')
 
   return {
     props: {
-      preview,
       post: {
-        ...data?.posts[0],
+        ...(data && data.posts[0]),
         content,
       },
-      morePosts: data?.morePosts,
+      morePosts: data && data.morePosts,
     },
   }
 }

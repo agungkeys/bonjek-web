@@ -1,28 +1,29 @@
-import cn from 'classnames'
 import Image from 'next/image'
 import Link from 'next/link'
 
-export default function CoverImage({ title, url, slug }) {
+export default function CoverImage({ title, image, slug }) {
   const imageUrl = `${
-    url.startsWith('/') ? process.env.NEXT_PUBLIC_STRAPI_API_URL : ''
-  }${url}`
+    image.url.startsWith('/') ? process.env.NEXT_PUBLIC_STRAPI_API_URL : ''
+  }${image.url}`
 
-  const image = (
+  const imageComponent = (
     <Image
-      width={2000}
-      height={1000}
+      width={image.width}
+      height={image.height}
       alt={`Cover Image for ${title}`}
       src={imageUrl}
-      className={cn('shadow-small', {
-        'hover:shadow-medium transition-shadow duration-200': slug,
-      })}
+      className='shadow-small hover:shadow-medium transition-shadow duration-200 w-full'
     />
   )
   return (
     <div className="sm:mx-0">
-      <Link href={`/posts/${slug}`}>
-        {slug ? <a aria-label={title}>{image}</a> : image}
-      </Link>
+      {slug ? 
+        <Link href={`/posts/${slug}`}>
+          {<a aria-label={title}>{imageComponent}</a>}
+        </Link>
+        :
+        imageComponent
+      }
     </div>
   )
 }

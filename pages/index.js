@@ -1,44 +1,35 @@
-import Container from '@/components/container'
-import MoreStories from '@/components/more-stories'
-import HeroPost from '@/components/hero-post'
-import Intro from '@/components/intro'
-import Layout from '@/components/layout'
-import { getAllPostsForHome } from '@/lib/api'
-import Head from 'next/head'
-import { CMS_NAME } from '@/lib/constants'
+import React from 'react';
+import SEO from 'constants/seo';
+import MainHead from '@/components/head/MainHead';
+import MainLayout from '/layout/MainLayout';
+import Banners from '@/components/banners/Banners';
+import LandingCategory from '@/components/section/LandingCategory';
 
-export default function Index({ allPosts, preview }) {
-  console.log("🚀 ~ file: index.js ~ line 11 ~ Index ~ preview", preview)
-  const heroPost = allPosts[0]
-  const morePosts = allPosts.slice(1)
+import { getBanners } from '@/lib/api';
+import { storeLandingCategories } from 'constants/storeLocal';
+
+function Home(props) {
+  const { storeBanners } = props;
   return (
-    <>
-      <Layout preview={preview}>
-        <Head>
-          <title>Next.js Blog Example with {CMS_NAME}</title>
-        </Head>
-        <Container>
-          <Intro />
-          {heroPost && (
-            <HeroPost
-              title={heroPost.title}
-              coverImage={heroPost.coverImage}
-              date={heroPost.date}
-              author={heroPost.author}
-              slug={heroPost.slug}
-              excerpt={heroPost.excerpt}
-            />
-          )}
-          {morePosts.length > 0 && <MoreStories posts={morePosts} />}
-        </Container>
-      </Layout>
-    </>
+    <MainLayout isCart isHeader isFooter>      
+      <MainHead seo={SEO.DEFAULT} />
+      <div>
+        <div className="sm:p-2 md:p-4 lg:p-6">
+          <Banners items={storeBanners}/>
+        </div>
+        <div className="relative px-4 pt-1 md:pt-2 md:py-4">
+          <LandingCategory items={storeLandingCategories} />
+        </div>
+      </div>
+    </MainLayout>
   )
 }
 
-export async function getStaticProps({ preview = null }) {
-  const allPosts = (await getAllPostsForHome(preview)) || []
+export async function getStaticProps() {
+  const storeBanners = (await getBanners()) || []
   return {
-    props: { allPosts, preview },
+    props: { storeBanners },
   }
 }
+
+export default Home;
