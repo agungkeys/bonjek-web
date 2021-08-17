@@ -1,6 +1,6 @@
 module.exports = {
   images: {
-    domains: ['localhost', 'res.cloudinary.com'],
+    domains: ['res.cloudinary.com'],
   },
   publicRuntimeConfig: {
     API: process.env.BASE_API,

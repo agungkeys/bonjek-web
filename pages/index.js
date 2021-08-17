@@ -25,7 +25,7 @@ function Home(props) {
   )
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const storeBanners = (await getBanners()) || []
   return {
     props: { storeBanners },
