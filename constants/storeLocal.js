@@ -6,7 +6,7 @@ const storeLandingCategories = [
     id: 0,
     label: 'Order',
     title: 'Makanan',
-    background: 'bg-landing-category-food',
+    background: 'bg-landing-cf',
     icon: <IconCatFood />,
     link: '/umkm'
   },
@@ -14,7 +14,7 @@ const storeLandingCategories = [
     id: 1,
     label: 'Order',
     title: 'Kurir',
-    background: 'bg-landing-category-courier',
+    background: 'bg-landing-cc',
     icon: <IconCatCourier />,
     link: '/kurir'
   }

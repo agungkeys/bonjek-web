@@ -1,5 +1,6 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
 module.exports = {
+  mode: 'jit',
   purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   darkMode: false, // or 'media' or 'class'
   theme: {
@@ -321,8 +322,8 @@ module.exports = {
         outline: '0 0 0 3px rgba(101, 31, 255, 0.4)',
       },
       backgroundImage: theme => ({
-        'landing-category-food': "url('https://res.cloudinary.com/dsxlujoww/image/upload/v1628760279/small_bg_food_15f3d394d4.jpg')",
-        'landing-category-courier': "url('https://res.cloudinary.com/dsxlujoww/image/upload/v1628760274/small_bg_courier_54518cceb7.jpg')",
+        'landing-cf': "url('https://res.cloudinary.com/dsxlujoww/image/upload/v1628760279/small_bg_food_15f3d394d4.jpg')",
+        'landing-cc': "url('https://res.cloudinary.com/dsxlujoww/image/upload/v1628760274/small_bg_courier_54518cceb7.jpg')",
       })
     },
   },
