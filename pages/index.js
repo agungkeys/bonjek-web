@@ -1,5 +1,5 @@
 import React from 'react';
-import SEO from 'constants/seo';
+import seo from 'constants/seo';
 import MainHead from '@/components/head/MainHead';
 import MainLayout from '/layout/MainLayout';
 import Banners from '@/components/banners/Banners';
@@ -12,7 +12,7 @@ function Home(props) {
   const { storeBanners } = props;
   return (
     <MainLayout isCart isHeader isFooter>      
-      <MainHead seo={SEO.DEFAULT} />
+      <MainHead seo={seo.DEFAULT} />
       <div>
         <div className="sm:p-2 md:p-4 lg:p-6">
           <Banners items={storeBanners}/>
