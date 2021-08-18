@@ -14,7 +14,7 @@ export default function Card({item}) {
   return(
     <>
       {item && (
-        <Link href={`/umkm/${item.slug}`}>
+        <Link href={`umkm/${item.slug}`} prefetch>
           <div className="cursor-pointer inline-block overflow-hidden duration-300 transform bg-white rounded-lg shadow-lg hover:-translate-y-2">
             <div className="flex flex-col h-full">
               <div className="relative bg-purple-primary">

@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
 import React, { useState } from "react";
+import Link from "next/link";
 import { BiShoppingBag,  BiCycling, BiWinkSmile, BiEnvelope, BiCartAlt} from "react-icons/bi";
 import Logo from "./Logo";
 
@@ -46,21 +47,22 @@ export default function Navbar(props) {
       <>
         {item && 
           <li>
-            <a
-              href={item.link}
-              aria-label={item.label}
-              title={item.label}
-              className={
-                isButton ? 
-                'inline-flex items-center justify-center h-10 px-3 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-purple-primary hover:bg-purple-900 focus:shadow-outline focus:outline-none' 
-                : (isCart ? 'inline-flex items-center justify-center h-10 px-3 font-medium tracking-wide text-pink-accent-400 transition duration-200 rounded shadow-md bg-white hover:bg-pink-800 hover:text-white focus:shadow-outline focus:outline-none' 
-                  : 'font-bold tracking-wide text-white transition-colors duration-200 rounded h-10 px-3 hover:bg-white hover:text-pink-primary inline-flex items-center')}
-            >
-              <div className="text-xl mr-1">
-                {item.image}
-              </div>
-              <span>{item.label}</span>
-            </a>
+            <Link href={item.link}>
+              <a
+                aria-label={item.label}
+                title={item.label}
+                className={
+                  isButton ? 
+                  'inline-flex items-center justify-center h-10 px-3 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-purple-primary hover:bg-purple-900 focus:shadow-outline focus:outline-none' 
+                  : (isCart ? 'inline-flex items-center justify-center h-10 px-3 font-medium tracking-wide text-pink-accent-400 transition duration-200 rounded shadow-md bg-white hover:bg-pink-800 hover:text-white focus:shadow-outline focus:outline-none' 
+                    : 'font-bold tracking-wide text-white transition-colors duration-200 rounded h-10 px-3 hover:bg-white hover:text-pink-primary inline-flex items-center')}
+              >
+                <div className="text-xl mr-1">
+                  {item.image}
+                </div>
+                <span>{item.label}</span>
+              </a>
+            </Link>
           </li>
         }
       </>
@@ -70,17 +72,18 @@ export default function Navbar(props) {
 
   function LogoItem(item) {
     return(
-      <a
-        href={item.link}
-        aria-label={item.label}
-        title={item.label}
-        className="inline-flex items-center lg:mx-auto"
-      >
-        {item.image}
-        <span className="ml-2 text-2xl font-bold tracking-wide text-white">
-          {item.label}
-        </span>
-      </a>
+      <Link href={item.link}>
+        <a
+          aria-label={item.label}
+          title={item.label}
+          className="inline-flex items-center lg:mx-auto"
+        >
+          {item.image}
+          <span className="ml-2 text-2xl font-bold tracking-wide text-white">
+            {item.label}
+          </span>
+        </a>
+      </Link>
     )
   }
 
