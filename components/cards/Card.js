@@ -22,8 +22,8 @@ export default function Card({item}) {
                 />
               </div>
               <div className="inline-block flex-grow border border-t-0 rounded-b">
-                <div className="p-3">
-                  <span className="mb-2 font-medium md:text-base text-xs text-grey-500">
+                <div className="p-1 md:p-2 lg:p-3">
+                  <span className="font-normal md:font-medium lg:font-medium text-xs md:text-sm lg:text-base text-grey-500">
                     {item.name || ''}
                   </span>
                   <p className="text-sm text-gray-900"></p>

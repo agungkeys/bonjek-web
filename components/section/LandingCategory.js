@@ -3,7 +3,7 @@ import Link from "next/link";
 
 function LandingCategory({items}) {
   return(
-    <div className="grid max-w-full gap-5 row-gap-5 sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg lg:grid-cols-2 grid-cols-2 sm:mx-auto">
+    <div className="grid max-w-full gap-3 md:gap-5 lg:gap-5 row-gap-5 sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg lg:grid-cols-2 grid-cols-2 sm:mx-auto">
       {items && items.map((item, idx) => (
         <Link key={idx} href={item.link} passHref>
           <div className={`${item.background} bg-cover bg-center rounded-lg shadow-lg cursor-pointer`}>

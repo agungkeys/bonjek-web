@@ -134,6 +134,33 @@ const storeStores = [
   },
 ];
 
+const storeCategories = [
+  {
+    id: 0,
+    label: 'Semua',
+    link: '',
+    icon: ''
+  },
+  {
+    id: 1,
+    label: 'Makanan & Minuman',
+    link: '',
+    icon: ''
+  },
+  {
+    id: 2,
+    label: 'Makanan',
+    link: '',
+    icon: ''
+  },
+  {
+    id: 3,
+    label: 'Minuman',
+    link: '',
+    icon: ''
+  }
+]
+
 function Home(props) {
   const { storeBanners } = props;
   return (
@@ -151,7 +178,7 @@ function Home(props) {
             <div className="container block pb-3 bg-white">
                 <h1 className="font-bold text-lg text-purple-900">UMKM Terpopular</h1>
             </div>
-            <div className="grid gap-3 md:gap-5 row-gap-5 mb-8 lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-3 grid-cols-3">
+            <div className="grid gap-3 md:gap-5 row-gap-5 mb-8 lg:grid-cols-5 md:grid-cols-3 grid-cols-2">
               <Cards items={storePopular} />
             </div>
           </div>
@@ -162,21 +189,14 @@ function Home(props) {
             <div className="container block pb-2 bg-white">
                 <h1 className="font-bold text-lg text-purple-900">Rekomendasi UMKM</h1>
             </div>
-            <div className="overflow-x-auto container block pb-3">
-              <div className="inline-flex items-center rounded-full bg-white border border-gray-600 p-2 mr-2">
-                <span className="px-1 text-sm text-gray-600 font-semibold">Semua Kategori</span>
-              </div>
-              <div className="inline-flex items-center rounded-full bg-white border border-gray-600 p-2 mr-2">
-                <span className="px-1 text-sm text-gray-600 font-semibold">Makanan & Minuman</span>
-              </div>
-              <div className="inline-flex items-center rounded-full bg-white border border-gray-600 p-2 mr-2">
-                <span className="px-1 text-sm text-gray-600 font-semibold">Makanan</span>
-              </div>
-              <div className="inline-flex items-center rounded-full bg-white border border-gray-600 p-2 mr-2">
-                <span className="px-1 text-sm text-gray-600 font-semibold">Minuman</span>
+            <div className="overflow-x-auto mb-4">
+              <div className="flex flex-row gap-2 md:gap-3 lg:gap-4">
+                {storeCategories && storeCategories.map((item, idx) => 
+                  <div key={idx} className="flex-none p-2 px-3 border border-gray-400 bg-gray-100 rounded-full text-gray-600 font-medium text-xs md:text-base lg:text-base">{item.label}</div>
+                )}
               </div>
             </div>
-            <div className="grid gap-3 md:gap-5 row-gap-5 mb-8 lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-3 grid-cols-3">
+            <div className="grid gap-3 md:gap-5 row-gap-5 mb-8 lg:grid-cols-5 md:grid-cols-3 grid-cols-2">
               <Cards items={storePopular} />
             </div>
           </div>
