@@ -7,8 +7,6 @@
 
 # testing
 /coverage
-/pages/api
-/pages/posts
 
 # next.js
 /.next/
