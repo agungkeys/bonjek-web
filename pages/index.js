@@ -64,8 +64,8 @@ function Home({ props }) {
               </div>
               {storeCategories && storeCategories.map((item, idx) => 
                 !!item.stores.length &&
-                <div className="flex-none">
-                  <Chip key={idx} item={item} />
+                <div key={idx} className="flex-none">
+                  <Chip item={item} />
                 </div>
               )}
             </div>
