@@ -58,11 +58,15 @@ function Home({ props }) {
               <h1 className="font-bold text-lg text-purple-900">Rekomendasi UMKM</h1>
           </div>
           <div className="overflow-x-auto mb-4">
-            <div className="flex flex-row gap-2 md:gap-3 lg:gap-4">
-            <Chip item={{name: 'Semua', slug: '/umkm' }} />
+            <div className="flex gap-2 md:gap-3 lg:gap-4">
+              <div className="flex-none">
+                <Chip item={{name: 'Semua', slug: '/umkm' }} />
+              </div>
               {storeCategories && storeCategories.map((item, idx) => 
                 !!item.stores.length &&
-                <Chip key={idx} item={item} />
+                <div className="flex-none">
+                  <Chip key={idx} item={item} />
+                </div>
               )}
             </div>
           </div>
