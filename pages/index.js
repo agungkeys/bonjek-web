@@ -28,38 +28,6 @@ const storeLandingCategories = [
     link: '/kurir'
   }
 ];
-const storePopular = [
-  {
-    name: 'Toko Berkah Sakti',
-    image:
-      'https://res.cloudinary.com/dsxlujoww/image/upload/v1628741405/bonjek_84c7ea5d2e.svg',
-    href: '/',
-  },
-  {
-    name: 'Toko Suka Saya',
-    image:
-      'https://res.cloudinary.com/dsxlujoww/image/upload/v1628741405/bonjek_84c7ea5d2e.svg',
-    href: '/',
-  },
-  {
-    name: 'Toko Usaha Bersama',
-    image:
-      'https://res.cloudinary.com/dsxlujoww/image/upload/v1628741405/bonjek_84c7ea5d2e.svg',
-    href: '/',
-  },
-  {
-    name: 'Toko Bersama Bisa',
-    image:
-      'https://res.cloudinary.com/dsxlujoww/image/upload/v1628741405/bonjek_84c7ea5d2e.svg',
-    href: '/',
-  },
-  {
-    name: 'Toko Bersama Bisa',
-    image:
-      'https://res.cloudinary.com/dsxlujoww/image/upload/v1628741405/bonjek_84c7ea5d2e.svg',
-    href: '/',
-  },
-];
 
 function Home({ props }) {
   const { storeBanners, storeStores, storeCategories } = props;
@@ -74,16 +42,16 @@ function Home({ props }) {
         <div className="relative px-4 pt-1 md:pt-2 md:py-4">
           {storeLandingCategories && <LandingCategory items={storeLandingCategories} />}
         </div>
-        {storePopular && 
-          <div className="px-4 pt-6 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
-            <div className="container block pb-3 bg-white">
-                <h1 className="font-bold text-lg text-purple-900">UMKM Terpopular</h1>
-            </div>
-            <div className="grid gap-3 md:gap-5 row-gap-5 mb-8 lg:grid-cols-5 md:grid-cols-3 grid-cols-2">
-              <Cards items={storePopular} />
-            </div>
+        <div className="px-4 pt-6 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+          <div className="container block pb-3 bg-white">
+              <h1 className="font-bold text-lg text-purple-900">UMKM Terpopular</h1>
           </div>
-        }
+          {storeStores && 
+            <div className="grid gap-3 md:gap-5 row-gap-5 mb-8 lg:grid-cols-5 md:grid-cols-3 grid-cols-2">
+              <Cards items={storeStores} isPopular />
+            </div>
+          }
+        </div>
         
         <div className="px-4 pt-3 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
           <div className="container block pb-2 bg-white">
@@ -109,15 +77,6 @@ function Home({ props }) {
   )
 }
 
-// export async function getInitialProps() {
-//   const storeBanners = (await getBanners()) || [];
-//   const storeStores = (await getStores()) || [];
-//   const storeCategories = (await getCategoryStoreReady()) || [];
-//   return {
-//     props: { storeBanners, storeStores, storeCategories }
-//   }
-// }
-
 Home.getInitialProps = async (ctx) => {
   const storeBanners = await getBanners();
   const storeStores = await getStores();
@@ -126,18 +85,6 @@ Home.getInitialProps = async (ctx) => {
   return {
     props: { storeBanners, storeStores, storeCategories }
   }
-  
-
-    // const storeBanners = await getBanners();
-    // const storeStores = await getStores();
-    // const storeCategories = await getCategoryStoreReady();
-
-    // const storeBanners = (await getBanners()) || [];
-    // const storeStores = (await getStores()) || [];
-    // const storeCategories = (await getCategoryStoreReady()) || [];
-    // return {
-    //   props: { storeBanners, storeStores, storeCategories }
-    // }
 
 }
 

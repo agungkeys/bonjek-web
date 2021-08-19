@@ -19,7 +19,7 @@ export default function Chip({item}) {
   }
   return(
     <div className="cursor-pointer">
-      <Link href={`/umkm?category=${item.slug ? item.name : item.name.stringToSlug()}`}>
+      <Link href={`/umkm?category=${item.slug ? item.slug : item.name.stringToSlug()}`}>
           <div className="flex items-center p-2 px-3 border border-gray-400 bg-gray-100 rounded-full text-gray-600 font-medium text-xs md:text-base lg:text-base">
             {item.name === 'Semua' && <IconAll />}
             <div>{item.name}</div>

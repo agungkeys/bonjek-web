@@ -14,17 +14,17 @@ export default function Card({item}) {
   return(
     <>
       {item && (
-        <Link href={`umkm/${item.slug}`} prefetch>
+        <Link href={`/umkm/${item.slug}`}>
           <div className="cursor-pointer inline-block overflow-hidden duration-300 transform bg-white rounded-lg shadow-lg hover:-translate-y-2">
             <div className="flex flex-col h-full">
-              <div className="relative bg-purple-primary">
-                {item.image.formats && 
+              <div className="relative bg-gray-100">
+                {item.logo && 
                   <Image
-                    src={item.image.formats && item.image.formats.thumbnail.url}
+                    src={item.logo && item.logo.url}
                     alt="Picture of something nice"
                     layout="responsive"
-                    width={item.image.formats && item.image.formats.thumbnail.width}
-                    height={item.image.formats && item.image.formats.thumbnail.height}
+                    width={item.logo && item.logo.width}
+                    height={item.logo && item.logo.height}
                     quality={100}
                     loading="lazy"
                   />

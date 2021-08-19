@@ -77,12 +77,12 @@ function Banners(props) {
             <div key={idx} className={idx === imageIndex ? "slide activeSlide" : "slide"}>
               <div className="img">
                 <Image 
-                  src={banner && banner.image.formats.medium.url} 
-                  alt={banner.image.name} 
+                  src={banner && banner.image.url} 
+                  alt={banner.name} 
                   layout="responsive"
                   className="rounded-lg"
-                  width={banner.image.formats.medium.width}
-                  height={banner.image.formats.medium.height}
+                  width={banner.image.width}
+                  height={banner.image.height}
                   quality={100}
                   loading="lazy"
                 />
