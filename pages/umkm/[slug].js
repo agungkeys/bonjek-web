@@ -11,7 +11,7 @@ function Store({ props }) {
     ...seo,
     TITLE: `${storeStore.name} - Bonjek | Ojek Online Bontang`,
     DESC:
-      `${storeStore.description.text} - Bonjek adalah aplikasi ojek online karya anak bontang, kurir kami siap melayani kebutuhan harian anda`,
+      `${storeStore.description ? storeStore.description.text : storeStore.name} - Bonjek adalah aplikasi ojek online karya anak bontang, kurir kami siap melayani kebutuhan harian anda`,
     KEYWORDS:
       'bonjek, bontang ojek, ojek umkm, ojek online, delivery courier',
   }
