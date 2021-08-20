@@ -2,6 +2,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import IconMerchantCheck from '../icon/IconMerchantCheck';
 
 export default function Card({item}) {
   function Flag() {
@@ -32,12 +33,13 @@ export default function Card({item}) {
               </div>
               <div className="inline-block flex-grow border border-t-0 rounded-b">
                 <div className="p-1 md:p-2 lg:p-3">
-                  <div className="flex items-center">
-                    <Flag />
-                    <span className="pl-1 font-normal md:font-medium lg:font-medium text-xs md:text-sm lg:text-base text-gray-600">
-                      {item.name || ''}
-                    </span>
-                  </div>
+                  <h1 className="pl-1 font-normal md:font-medium lg:font-medium text-xs md:text-sm lg:text-base">
+                    {item.name} - {item.district.name}
+                  </h1>
+                  <div className="flex items-center pt-1">
+                      <IconMerchantCheck />
+                      <div className="text-xs text-pink-primary font-semibold"><span className="pl-1">UMKM Terpilih</span></div>
+                    </div>
                   <p className="text-sm text-gray-900"></p>
                 </div>
               </div>

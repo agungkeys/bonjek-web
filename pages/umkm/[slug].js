@@ -3,6 +3,7 @@ import MainHead from "@/components/head/MainHead";
 import Image from "next/image";
 import PostBody from '@/components/post-body'
 import { getStoreDetail } from "@/lib/api";
+import IconMerchantCheck from "@/components/icon/IconMerchantCheck";
 import seo from "constants/seo";
 
 function Store({ props }) {
@@ -36,7 +37,11 @@ function Store({ props }) {
                     />
                   </div>
                   <div className="col-span-6 md:col-span-6 lg:col-span-7 pl-3 md:pl-5 w-full">
-                    <h1 className="font-semibold text-lg">{storeStore.name}</h1>
+                    <h1 className="font-semibold text-lg">{storeStore.name} - {storeStore.district.name}</h1>
+                    <div className="flex items-center pt-1">
+                      <IconMerchantCheck />
+                      <div className="text-xs text-pink-primary font-semibold"><span className="pl-1">UMKM Terpilih</span></div>
+                    </div>
                     {storeStore.description && 
                       <PostBody content={storeStore.description.html} />
                     }

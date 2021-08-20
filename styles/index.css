@@ -11,9 +11,8 @@
 
 .header-ui{
   position: relative;
-  /* padding: 2rem 0 4rem 0; */
   background: linear-gradient(45deg, #ffd0e7 0%, #ffcfe7 50%, #ffffff 100%);
-  height: 130px;
+  height: 125px;
 }
 
 .header-ui::after {
@@ -26,8 +25,8 @@
     bottom: -1px;
     left: -1px;
     right: -1px;
-    width: 100%;
     z-index: 1; 
+    width: 100%;
 }
 
 .markdown {
