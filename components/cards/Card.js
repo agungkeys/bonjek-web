@@ -36,7 +36,7 @@ export default function Card({item}) {
                   <h1 className="pl-1 font-normal md:font-medium lg:font-medium text-xs md:text-sm lg:text-base">
                     {item.name} - {item.district.name}
                   </h1>
-                  <div className="flex items-center pt-1">
+                  <div className="flex items-center pt-1 pb-1">
                       <IconMerchantCheck />
                       <div className="text-xs text-pink-primary font-semibold"><span className="pl-1">UMKM Terpilih</span></div>
                     </div>
