@@ -57,8 +57,11 @@ function Home({ props }) {
           <div className="container block pb-2 bg-white">
               <h1 className="font-bold text-lg text-purple-900">Rekomendasi UMKM</h1>
           </div>
-          <div className="overflow-x-auto mb-4">
-            <div className="flex gap-2 md:gap-3 lg:gap-4">
+        </div>
+
+        <div className="overflow-x-auto mb-2 pt-1 sticky z-10 bg-white" style={{top: '68px'}}>
+          <div className="px-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+            <div className="flex gap-2 md:gap-3 lg:gap-3 py-2">
               <div className="flex-none">
                 <Chip item={{name: 'Semua', slug: '/umkm' }} />
               </div>
@@ -70,6 +73,8 @@ function Home({ props }) {
               )}
             </div>
           </div>
+        </div>
+        <div className="px-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
           {storeStores && 
             <div className="grid gap-3 md:gap-5 row-gap-5 mb-8 lg:grid-cols-5 md:grid-cols-3 grid-cols-2">
               <Cards items={storeStores} />
