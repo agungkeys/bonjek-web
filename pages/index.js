@@ -63,7 +63,7 @@ function Home({ props }) {
           <div className="px-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
             <div className="flex gap-2 md:gap-3 lg:gap-3 py-2">
               <div className="flex-none">
-                <Chip item={{name: 'Semua', slug: '/umkm' }} />
+                <Chip item={{name: 'Semua', slug: 'semua' }} />
               </div>
               {storeCategories && storeCategories.map((item, idx) => 
                 !!item.stores.length &&
