@@ -6,7 +6,7 @@ import { getStoreDetail } from "@/lib/api";
 import IconMerchantCheck from "@/components/icon/IconMerchantCheck";
 import seo from "constants/seo";
 
-function Store({ props }) {
+function DetailUmkm({ props }) {
   const {storeStore} = props;
   const SEO = {
     ...seo,
@@ -21,7 +21,7 @@ function Store({ props }) {
       <MainHead seo={SEO} />
       {storeStore && 
         <div>
-          <div className="px-4 pt-3 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+          <div className="px-4 pt-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
             <div className="header-ui border-0 rounded-xl">
               <div className="w-full absolute z-10 p-5">
                 <div className="grid grid-cols-8">
@@ -63,7 +63,7 @@ function Store({ props }) {
   )
 }
 
-Store.getInitialProps = async (ctx) => {
+DetailUmkm.getInitialProps = async (ctx) => {
   const { query } = ctx;
   const slug = query.slug
   
@@ -75,4 +75,4 @@ Store.getInitialProps = async (ctx) => {
   }
 }
 
-export default Store;
+export default DetailUmkm;

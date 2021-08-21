@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import seo from 'constants/seo';
 import MainHead from '@/components/head/MainHead';
 import MainLayout from '/layout/MainLayout';
@@ -22,10 +22,10 @@ const storeLandingCategories = [
   {
     id: 1,
     label: 'Order',
-    title: 'Kurir',
+    title: 'Pengantaran',
     background: 'bg-landing-cc',
     icon: <IconCatCourier />,
-    link: '/kurir'
+    link: '/keranjang?isPickup=true'
   }
 ];
 
