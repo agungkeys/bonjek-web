@@ -7,7 +7,7 @@ import Chip from '@/components/chip/Chip';
 
 import { getCategoryStoreReady, getStores } from '@/lib/api';
 function Umkm({ props }) {
-  const { storeStores, storeCategories } = props;
+  const { category, storeStores, storeCategories } = props;
 
   return (
     <MainLayout isCart isHeader isFooter>      
@@ -41,11 +41,13 @@ function Umkm({ props }) {
 }
 
 Umkm.getInitialProps = async (ctx) => {
-  const storeStores = await getStores();
+  const { query } = ctx;
+  const category = (query.category === 'semua' ? '' : query.category) || '';
+  const storeStores = await getStores(category);
   const storeCategories = await getCategoryStoreReady();
 
   return {
-    props : {storeStores, storeCategories }
+    props : { category, storeStores, storeCategories }
   }
 }
 
