@@ -28,12 +28,13 @@ export default function Card({item}) {
                     height={item.logo && item.logo.height}
                     quality={100}
                     loading="lazy"
+                    placeholder={() => <div style={{backgroundColor: 'grey'}} />}
                   />
                 }
               </div>
               <div className="inline-block flex-grow border border-t-0 rounded-b">
                 <div className="p-1 md:p-2 lg:p-3">
-                  <h1 className="pl-1 font-normal md:font-medium lg:font-medium text-xs md:text-sm lg:text-base">
+                  <h1 className="font-normal md:font-medium lg:font-medium text-xs md:text-sm lg:text-base">
                     {item.name} - {item.district.name}
                   </h1>
                   <div className="flex items-center pt-1 pb-1">
@@ -46,6 +47,27 @@ export default function Card({item}) {
             </div>
           </div>
         </Link>
+      ) || (
+        <>
+        <div className="cursor-pointer inline-block overflow-hidden duration-300 transform bg-white rounded-lg shadow-lg hover:-translate-y-2">
+          <div className="flex flex-col h-full">
+            <div className="inline h-40">
+              <span className="skeleton-box inline-block h-full w-full" />
+            </div>
+            <div className="inline-block flex-grow border border-t-0 rounded-b">
+              <div className="p-1 md:p-2 lg:p-3">
+                <h1 className="font-normal md:font-medium lg:font-medium text-xs md:text-sm lg:text-base">
+                  <span class="skeleton-box h-5 w-full inline-block"></span>
+                </h1>
+                <div className="relative flex-grow pt-1 pb-1">
+                  <span class="skeleton-box h-4 w-1/6 inline-block"></span>
+                  <span class="skeleton-box ml-1 h-4 w-1/2 inline-block"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </>
       )}
     </>
   )

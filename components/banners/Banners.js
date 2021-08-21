@@ -85,6 +85,7 @@ function Banners(props) {
                   height={banner.image.height}
                   quality={100}
                   loading="lazy"
+                  placeholder={() => <div style={{backgroundColor: 'grey'}} />}
                 />
               </div>
             </div>
