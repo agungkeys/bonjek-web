@@ -80,8 +80,7 @@ const { query, isPickup, storeDistrictsCities } = props;
                 <label
                   for="name"
                   className="block font-medium tracking-tight"
-                >Nama</label
-                >
+                >Nama</label>
                 <input
                   id="name"
                   type="text"
@@ -96,13 +95,12 @@ const { query, isPickup, storeDistrictsCities } = props;
                 <label
                   for="telp"
                   className="block font-medium tracking-tight"
-                >Telephone</label
-                >
+                >No. Whatsapp</label>
                 <input
                   id="telp"
                   type="number"
                   className="w-full border border-gray-400 text-gray-800 placeholder-gray-400 rounded focus:border-transparent focus:outline-none focus:shadow-outline px-3 py-2"
-                  placeholder="Telp Pengirim"
+                  placeholder="No. WA Pengirim"
                 />
                 {/* <span className="text-xs text-red-500"
                 >Email is required</span
@@ -127,9 +125,26 @@ const { query, isPickup, storeDistrictsCities } = props;
                 <label
                   for="address"
                   className="block font-medium tracking-tight"
-                >Alamat</label
-                >
+                >Alamat</label>
                 <textarea placeholder="Alamat Pengirim" className="border border-gray-400 text-gray-800 placeholder-gray-400 rounded focus:border-transparent focus:outline-none focus:shadow-outline block w-full resize-y h-16 p-1"/>
+                {/* <span className="text-xs text-red-500"
+                >Nama wajib di isi</span
+                > */}
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-3">
+            <div className="space-y-2">
+              <label
+                for="address"
+                className="block font-medium tracking-tight"
+              >Jumlah Talangan</label>
+                <input
+                  id="credit"
+                  type="number"
+                  className="w-full border border-gray-400 text-gray-800 placeholder-gray-400 rounded focus:border-transparent focus:outline-none focus:shadow-outline px-3 py-2"
+                  placeholder="Biaya Talangan"
+                />
                 {/* <span className="text-xs text-red-500"
                 >Nama wajib di isi</span
                 > */}
@@ -143,7 +158,7 @@ const { query, isPickup, storeDistrictsCities } = props;
                   className="block font-medium tracking-tight"
                 >Keterangan Barang</label
                 >
-                <textarea placeholder="Dokumen Penting" className="border border-gray-400 text-gray-800 placeholder-gray-400 rounded focus:border-transparent focus:outline-none focus:shadow-outline block w-full resize-y h-16 p-1"/>
+                <textarea placeholder="Kue Ulang Tahun, Mohon berhati-hati membawa barangnya." className="border border-gray-400 text-gray-800 placeholder-gray-400 rounded focus:border-transparent focus:outline-none focus:shadow-outline block w-full resize-y h-16 p-1"/>
                 {/* <span className="text-xs text-red-500"
                 >Nama wajib di isi</span
                 > */}
@@ -164,8 +179,7 @@ const { query, isPickup, storeDistrictsCities } = props;
                 <label
                   for="name"
                   className="block font-medium tracking-tight"
-                >Nama</label
-                >
+                >Nama</label>
                 <input
                   id="name"
                   type="text"
@@ -180,13 +194,12 @@ const { query, isPickup, storeDistrictsCities } = props;
                 <label
                   for="telp"
                   className="block font-medium tracking-tight"
-                >Telephone</label
-                >
+                >No. Whatsapp</label>
                 <input
                   id="telp"
                   type="number"
                   className="w-full border border-gray-400 text-gray-800 placeholder-gray-400 rounded focus:border-transparent focus:outline-none focus:shadow-outline px-3 py-2"
-                  placeholder="Telp Penerima"
+                  placeholder="No. WA Penerima"
                 />
                 {/* <span className="text-xs text-red-500"
                 >Email is required</span
@@ -231,6 +244,74 @@ const { query, isPickup, storeDistrictsCities } = props;
               Ringkasan Pembayaran
             </h1>
 
+            <div className="py-3">
+              <div className="flex space-x-3 w-full items-center">
+                <div className="flex-1 text-left">
+                  <div className="block">
+                    <span className="text-sm text-gray-500">Asal Pengambilan</span>
+                  </div>
+                  <div className="block">
+                    <span className="font-bold">Bontang Baru</span>
+                  </div>
+                </div>
+                <div className="text-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </div>
+                <div className="flex-1 text-right">
+                  <div className="block">
+                    <span className="text-sm text-gray-500">Tujuan Pengantaran</span>
+                  </div>
+                  <div className="block">
+                    <span className="font-bold">Tanjung Laut Indah</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div className="flex space-x-2 w-full items-center">
+                <div className="flex-1 text-left">
+                  <div className="block">
+                    <span className="text-gray-600">Estimasi Biaya Delivery</span>
+                  </div>
+                </div>
+                <div className="flex-1 text-right">
+                  <div className="block">
+                    <span className="text-gray-600">15.000</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div className="flex space-x-2 w-full items-center">
+                <div className="flex-1 text-left">
+                  <div className="block">
+                    <span className="text-gray-600">Talangan</span>
+                  </div>
+                </div>
+                <div className="flex-1 text-right">
+                  <div className="block">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="py-2">
+              <div className="flex space-x-2 w-full items-center">
+                <div className="flex-1 text-left">
+                  <div className="block">
+                    <span className="text-gray-700 font-bold">Total Bayar</span>
+                  </div>
+                </div>
+                <div className="flex-1 text-right">
+                  <div className="block">
+                    <span className="text-gray-700 font-bold"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <div className="w-full">
               <button
                 type="button"
@@ -252,7 +333,7 @@ const { query, isPickup, storeDistrictsCities } = props;
         <div className="pt-5">
           {isPickup && <CartHeader />}
           <div>
-            <span className="text-lg font-bold">{isPickup ? `Form Pengantaran` : `Keranjang Belanja`}</span>
+            <span className="text-lg font-bold">{isPickup ? `Form Pickup Order` : `Keranjang Belanja`}</span>
           </div>
           {isPickup ? <FormSectionCourier /> : <FormSectionCart />}
         </div>

@@ -2,7 +2,8 @@
 import React from 'react';
 import Link from 'next/link';
 
-export default function Chip({item}) {
+export default function Chip(props) {
+  const { item, active } = props;
   String.prototype.stringToSlug = function() {
     var str = this;
     str = str.replace(/^\s+|\s+$/g, '');
@@ -20,7 +21,7 @@ export default function Chip({item}) {
   return(
     <div className="cursor-pointer">
       <Link href={`/umkm?category=${item.slug ? item.slug : item.name.stringToSlug()}`}>
-          <div className="flex items-center p-2 px-3 border border-gray-400 bg-gray-100 rounded-full text-gray-600 font-medium text-xs md:text-base lg:text-base">
+          <div className={`flex items-center p-2 px-3 border ${active === item.slug || JSON.stringify(active) === 'semua' ? 'border-pink-600 bg-pink-400 text-white' : 'border-gray-400 bg-gray-100 text-gray-600' } rounded-full font-medium text-xs md:text-base lg:text-base`}>
             {item.name === 'Semua' && <IconAll />}
             <div>{item.name}</div>
           </div>
