@@ -236,7 +236,7 @@ const { query, isPickup, storeDistrictsCities } = props;
           </form>
       
         </div>
-        <div className="col-span-3 md:col-span-1 lg:col-span-1 bg-gray-100 border-0 rounded-lg p-3 shadow-lg">
+        <div className="col-span-3 h-auto md:col-span-1 lg:col-span-1 bg-gray-100 border-0 rounded-lg p-3 shadow-lg">
           <form action="" className="space-y-3">
             <h1
               className="font-bold text-lg md:text-xl xl:text-2xl tracking-tight"
@@ -248,23 +248,23 @@ const { query, isPickup, storeDistrictsCities } = props;
               <div className="flex space-x-3 w-full items-center">
                 <div className="flex-1 text-left">
                   <div className="block">
-                    <span className="text-sm text-gray-500">Asal Pengambilan</span>
+                    <span className="text-gray-500 text-xs md:text-sm lg:text-sm">Asal Pengambilan</span>
                   </div>
                   <div className="block">
-                    <span className="font-bold">Bontang Baru</span>
+                    <span className="font-bold text-sm md:text-base lg:text-base">Bontang Baru</span>
                   </div>
                 </div>
                 <div className="text-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 md:h-8 md:w-8 lg:h-8 lg:w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </div>
                 <div className="flex-1 text-right">
                   <div className="block">
-                    <span className="text-sm text-gray-500">Tujuan Pengantaran</span>
+                    <span className="text-gray-500 text-xs md:text-sm lg:text-sm">Tujuan Pengantaran</span>
                   </div>
                   <div className="block">
-                    <span className="font-bold">Tanjung Laut Indah</span>
+                    <span className="font-bold text-sm md:text-base lg:text-base">Tanjung Laut Indah</span>
                   </div>
                 </div>
               </div>
@@ -274,12 +274,12 @@ const { query, isPickup, storeDistrictsCities } = props;
               <div className="flex space-x-2 w-full items-center">
                 <div className="flex-1 text-left">
                   <div className="block">
-                    <span className="text-gray-600">Estimasi Biaya Delivery</span>
+                    <span className="text-gray-600 text-sm md:text-base lg:text-base">Estimasi Biaya Delivery</span>
                   </div>
                 </div>
                 <div className="flex-1 text-right">
                   <div className="block">
-                    <span className="text-gray-600">15.000</span>
+                    <span className="text-gray-600 text-sm md:text-base lg:text-base">15.000</span>
                   </div>
                 </div>
               </div>
@@ -288,11 +288,12 @@ const { query, isPickup, storeDistrictsCities } = props;
               <div className="flex space-x-2 w-full items-center">
                 <div className="flex-1 text-left">
                   <div className="block">
-                    <span className="text-gray-600">Talangan</span>
+                    <span className="text-gray-600 text-sm md:text-base lg:text-base">Biaya Talangan</span>
                   </div>
                 </div>
                 <div className="flex-1 text-right">
                   <div className="block">
+                    <span className="text-gray-600 text-sm md:text-base lg:text-base">-</span>
                   </div>
                 </div>
               </div>
@@ -301,12 +302,12 @@ const { query, isPickup, storeDistrictsCities } = props;
               <div className="flex space-x-2 w-full items-center">
                 <div className="flex-1 text-left">
                   <div className="block">
-                    <span className="text-gray-700 font-bold">Total Bayar</span>
+                    <span className="text-gray-700 font-bold text-sm md:text-base lg:text-base">Total Bayar</span>
                   </div>
                 </div>
                 <div className="flex-1 text-right">
                   <div className="block">
-                    <span className="text-gray-700 font-bold"></span>
+                    <span className="text-gray-700 font-bold text-sm md:text-base lg:text-base">15.000</span>
                   </div>
                 </div>
               </div>
