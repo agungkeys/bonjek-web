@@ -11,22 +11,26 @@
 
 .header-ui{
   position: relative;
-  background: linear-gradient(45deg, #ffd0e7 0%, #ffcfe7 50%, #ffffff 100%);
-  height: 125px;
+  /* background: linear-gradient(45deg, #ffd0e7 0%, #ffcfe7 50%, #ffffff 100%); */
+  background: url("/images/bg-head-store.svg") bottom no-repeat;
+  background-size: 100%;
+  background-position: center bottom;
+  height: auto;
 }
 
 .header-ui::after {
-    display: block;
+    /* display: block;
     content: '';
     height: 100%;
-    background: url("http://svgur.com/i/5Es.svg") bottom no-repeat;
-    background-size: contain;
+    background: url("/images/bg-head-store.svg") bottom no-repeat;
+    background-size: 100%;
+    background-position: center;
     position: absolute;
     bottom: -1px;
     left: -1px;
     right: -1px;
     z-index: 1; 
-    width: 100%;
+    width: 100%; */
 }
 
 .markdown {

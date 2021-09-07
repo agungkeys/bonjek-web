@@ -78,7 +78,6 @@ const { query, isPickup, storeDistrictsCities } = props;
             <div className="grid grid-cols-2 gap-3">
               <div className="space-y-2">
                 <label
-                  for="name"
                   className="block font-medium tracking-tight"
                 >Nama</label>
                 <input
@@ -93,7 +92,6 @@ const { query, isPickup, storeDistrictsCities } = props;
               </div>
               <div className="space-y-2">
                 <label
-                  for="telp"
                   className="block font-medium tracking-tight"
                 >No. Whatsapp</label>
                 <input
@@ -111,7 +109,6 @@ const { query, isPickup, storeDistrictsCities } = props;
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-3">
               <div className="space-y-2">
                 <label
-                  for="district"
                   className="block font-medium tracking-tight"
                 >Wilayah</label
                 >
@@ -123,7 +120,6 @@ const { query, isPickup, storeDistrictsCities } = props;
 
               <div className="space-y-2">
                 <label
-                  for="address"
                   className="block font-medium tracking-tight"
                 >Alamat</label>
                 <textarea placeholder="Alamat Pengirim" className="border border-gray-400 text-gray-800 placeholder-gray-400 rounded focus:border-transparent focus:outline-none focus:shadow-outline block w-full resize-y h-16 p-1"/>
@@ -136,7 +132,6 @@ const { query, isPickup, storeDistrictsCities } = props;
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-3">
             <div className="space-y-2">
               <label
-                for="address"
                 className="block font-medium tracking-tight"
               >Jumlah Talangan</label>
                 <input
@@ -154,7 +149,6 @@ const { query, isPickup, storeDistrictsCities } = props;
             <div className="grid grid-cols-1 gap-3">
               <div className="space-y-2">
                 <label
-                  for="address"
                   className="block font-medium tracking-tight"
                 >Keterangan Barang</label
                 >
@@ -177,7 +171,6 @@ const { query, isPickup, storeDistrictsCities } = props;
             <div className="grid grid-cols-2 gap-3">
               <div className="space-y-2">
                 <label
-                  for="name"
                   className="block font-medium tracking-tight"
                 >Nama</label>
                 <input
@@ -192,7 +185,6 @@ const { query, isPickup, storeDistrictsCities } = props;
               </div>
               <div className="space-y-2">
                 <label
-                  for="telp"
                   className="block font-medium tracking-tight"
                 >No. Whatsapp</label>
                 <input
@@ -210,7 +202,6 @@ const { query, isPickup, storeDistrictsCities } = props;
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-3">
               <div className="space-y-2">
                 <label
-                  for="district"
                   className="block font-medium tracking-tight"
                 >Wilayah</label
                 >
@@ -222,7 +213,6 @@ const { query, isPickup, storeDistrictsCities } = props;
 
               <div className="space-y-2">
                 <label
-                  for="address"
                   className="block font-medium tracking-tight"
                 >Alamat</label
                 >
@@ -332,11 +322,11 @@ const { query, isPickup, storeDistrictsCities } = props;
       <MainHead seo={seo.DEFAULT} />
       <Container>
         <div className="pt-5">
-          {isPickup && <CartHeader />}
+          {!!isPickup && <CartHeader />}
           <div>
-            <span className="text-lg font-bold">{isPickup ? `Form Pickup Order` : `Keranjang Belanja`}</span>
+            <span className="text-lg font-bold">{!!isPickup ? `Form Pickup Order` : `Keranjang Belanja`}</span>
           </div>
-          {isPickup ? <FormSectionCourier /> : <FormSectionCart />}
+          {!!isPickup ? <FormSectionCourier /> : <FormSectionCart />}
         </div>
       </Container>
     </MainLayout>
@@ -345,7 +335,7 @@ const { query, isPickup, storeDistrictsCities } = props;
 
 Keranjang.getInitialProps = async (ctx) => {
   const { query } = ctx;
-  const isPickup = query.isPickup;
+  const isPickup = query.isPickup && JSON.parse(query.isPickup);
 
   const storeDistrictsCities = await getDistrictsCities();
 
