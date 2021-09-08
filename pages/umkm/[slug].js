@@ -7,7 +7,8 @@ import Chip from "@/components/chip/Chip";
 import Search from "@/components/search/Search";
 
 import PostBody from '@/components/post-body'
-import { getStoreDetail } from "@/lib/api";
+import { getStoreDetail, getCategoryProducts } from "@/lib/api";
+import { priceFormat } from "helpers/utils";
 import seo from "constants/seo";
 
 function DetailUmkm({ props }) {
@@ -15,7 +16,6 @@ function DetailUmkm({ props }) {
   const {category, slug} = query;
 
   const [stateCategoryProducts, setStateCategoryProducts] = useState([]);
-  console.log("🚀 ~ file: [slug].js ~ line 18 ~ DetailUmkm ~ stateCategoryProducts", stateCategoryProducts)
 
   const [searchText, setSearchText] = useState('');
   const [listItems, setListItems] = useState([]);
@@ -50,10 +50,11 @@ function DetailUmkm({ props }) {
     
     if(len){
       if(len === 3 || len === 5 || len > 6){
-        requestData(val)
+        requestData(val);
       }
-      if(len === 0 && val ===""){
+      if(len === 1 || val ===""){
         setStateCategoryProducts(populateCategoryProduct());
+        requestData('');
       }
     }
   };
@@ -64,7 +65,7 @@ function DetailUmkm({ props }) {
   }
   
   const requestData = async (key) => {
-    const res = await getStoreDetail(slug, key);
+    const res = await getCategoryProducts(slug, key);
     if(res){
       const json = await res;
       setStateCategoryProducts(populateCategoryProduct(json));
@@ -121,9 +122,10 @@ function DetailUmkm({ props }) {
               </div>
               <div className="flex gap-2 md:gap-3 lg:gap-3 py-2">
                 {stateCategoryProducts && stateCategoryProducts.map((item, idx) => 
-                  <div key={idx} className="flex-none">
-                    <Chip item={item} />
-                  </div>
+                    item.products && item.products.length > 0 &&
+                    <div key={idx} className="flex-none">
+                      <Chip item={item} />
+                    </div>
                 )}
               </div>
             </div>
@@ -133,7 +135,7 @@ function DetailUmkm({ props }) {
             {stateCategoryProducts && stateCategoryProducts.map((item, idx) => 
               <div key={idx}>
                 {item.products && item.products.length > 0 &&
-                  <div>
+                  <div id={item.slug}>
                     <div className="block">
                       <h1 className="text-lg text-gray-700 font-bold py-3 pt-6">{item.name || ''}</h1>
                     </div>
@@ -142,7 +144,8 @@ function DetailUmkm({ props }) {
                         <div key={idx} className={`border-0 ${item.products.length === idx+1 ? `border-b-0` : `border-b-2`} p-3 pb-5 md:pb-2 lg:pb-2 md:border lg:border md:rounded-lg lg:rounded-lg md:hover:border-pink-primary lg:hover:border-pink-primary`}>
                           <div className="grid grid-cols-3 gap-3">
                             <div className="cols-1">
-                              <Image 
+                              {itm.image && itm.image[0] ?
+                                <Image 
                                 className="object-cover w-full rounded" 
                                 alt={itm.image[0].id}
                                 src={itm.image[0].url}
@@ -150,11 +153,24 @@ function DetailUmkm({ props }) {
                                 height={itm.image[0].height}
                                 quality={100}
                               />
+                              :
+                              <Image 
+                                className="object-cover w-full rounded" 
+                                alt="no-image"
+                                src="/images/no-image.png"
+                                width={320}
+                                height={320}
+                                quality={100}
+                              />
+                              }
                             </div>
                             <div className="col-span-2">
                               <div className="h-full flex flex-wrap content-between">
                                 <div className="w-full">
-                                  <h1 className="text-gray-900 text-md font-bold">{itm.name || ''}</h1>
+                                  <h1 className="text-gray-900 text-md font-base">{itm.name || ''}</h1>
+                                  <div className="pt-1">
+                                    <span className="text-black text-md font-bold">{itm.price ? priceFormat(itm.price) : ''}</span>
+                                  </div>
                                 </div>
                                 <div className="w-full text-right">
                                   <button className="p-1 px-3 border rounded-lg bg-pink-primary text-white text-center font-bold">
@@ -185,10 +201,11 @@ DetailUmkm.getInitialProps = async (ctx) => {
   const search = (query.q === '' ? '' : query.q) || '';
   const q = search === '' ? '' : search;
   
-  const storeDatas = await getStoreDetail(slug, q);
-  // const storeDatas = [];
-  const storeStore = storeDatas && storeDatas.store;
-  const storeProductCategories = storeDatas && storeDatas.productCategories;
+  const storeDataStore = await getStoreDetail(slug);
+  const storeDataCategoryProducts = await getCategoryProducts(slug, q);
+
+  const storeStore = storeDataStore && storeDataStore || [];
+  const storeProductCategories = storeDataCategoryProducts && storeDataCategoryProducts || [];
 
   return {
     props: { query, storeStore, storeProductCategories},
